@@ -3,17 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <title><%= content_for?(:title) ? yield(:title) : "Let's Jam" %></title>
+    <%= stylesheet_link_tag    "application", media: 'all' %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => false %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
+    <!-- Nav Bar -->
+    <div class="top-bar" id='top-bar'>
+      <!-- Left Section of Nav Bar -->
+      <div class="columns small-6">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class='nav-logo'><%= link_to "Westfield Sportsman's Club", root_path %></li>
+        </ul>
+      </div>
 
+    </div>
     <%= yield %>
-
+    <footer>
+      <div class="row">
+        <div class="columns small-6">
+          <p>
+            <span class='nav-logo'><%= link_to "Westfield Sportsman's Club", root_path %></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2017 All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
