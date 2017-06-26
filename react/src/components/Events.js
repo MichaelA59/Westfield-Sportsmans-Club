@@ -6,6 +6,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 const Events = (props) => {
     return(
       <div>
+        <button onClick={browserHistory.goBack}>Go Back</button>
         <h1>Events Page</h1>
       </div>
     )

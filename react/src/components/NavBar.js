@@ -19,7 +19,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/RangeInfo'>Range Info</Link>
+                    <Link to='/range'>Range Info</Link>
                   </li>
                 </ul>
               </div>
@@ -27,7 +27,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/Facilities'>Facilities</Link>
+                    <Link to='/facilities'>Facilities</Link>
                   </li>
                 </ul>
               </div>
@@ -35,7 +35,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/Archery'>Archery</Link>
+                    <Link to='/archery'>Archery</Link>
                   </li>
                 </ul>
               </div>
@@ -43,7 +43,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/Events'>Events</Link>
+                    <Link to='/events'>Events</Link>
                   </li>
                 </ul>
               </div>
@@ -51,7 +51,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/About'>About</Link>
+                    <Link to='/about'>About</Link>
                   </li>
                 </ul>
               </div>
@@ -59,7 +59,7 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/Membership'>Membership</Link>
+                    <Link to='/membership'>Membership</Link>
                   </li>
                 </ul>
               </div>
@@ -67,11 +67,11 @@ const NavBar = (props) => {
               <div className='navbar-header'>
                 <ul className='nav navbar-nav'>
                   <li>
-                    <Link to='/Fid'>Fid</Link>
+                    <Link to='/fid'>Fid</Link>
                   </li>
                 </ul>
               </div>
-
+              
             </div>
           </div>
         </div>
