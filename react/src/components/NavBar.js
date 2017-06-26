@@ -25,6 +25,7 @@ const NavBar = (props) => {
             </ul>
           </div>
         </div>
+        {props.children}
       </div>
     )
   }

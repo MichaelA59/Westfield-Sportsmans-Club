@@ -19,15 +19,16 @@ class App extends Component {
   render() {
     return(
       <Router history={browserHistory}>
-        <Route path='/' component={NavBar} />
-        <Route path='/home' component={HomePage} />
-        <Route path='/range' component={RangeInfo} />
-        <Route path='/facilities' component={Facilities} />
-        <Route path='/archery' component={Archery} />
-        <Route path='/events' component={Events} />
-        <Route path='/about' component={About} />
-        <Route path='/membership' component={Membership} />
-        <Route path='/fid' component={Fid} />
+        <Route path='/' component={NavBar}>
+          <Route path='/home' component={HomePage} />
+          <Route path='/range' component={RangeInfo} />
+          <Route path='/facilities' component={Facilities} />
+          <Route path='/archery' component={Archery} />
+          <Route path='/events' component={Events} />
+          <Route path='/about' component={About} />
+          <Route path='/membership' component={Membership} />
+          <Route path='/fid' component={Fid} />
+        </Route>
       </Router>
     )
   }
