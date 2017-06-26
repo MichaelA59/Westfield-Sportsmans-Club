@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import NavBar from './components/NavBar';
 import HomePage from './components/HomePage';
 import RangeInfo from './components/RangeInfo';
 import Facilities from './components/Facilities';
@@ -18,7 +19,8 @@ class App extends Component {
   render() {
     return(
       <Router history={browserHistory}>
-        <Route path='/' component={HomePage} />
+        <Route path='/' component={NavBar} />
+        <Route path='/home' component={HomePage} />
         <Route path='/range' component={RangeInfo} />
         <Route path='/facilities' component={Facilities} />
         <Route path='/archery' component={Archery} />
