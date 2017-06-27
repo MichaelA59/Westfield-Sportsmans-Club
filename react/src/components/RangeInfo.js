@@ -2,19 +2,14 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
-import HandgunRimfire from './RangeInfoComponents/HandgunRimfire';
-import HighPower from './RangeInfoComponents/HighPower';
-import IndoorOutdoor from './RangeInfoComponents/IndoorOutdoor';
-import MuzzleLoader from './RangeInfoComponents/MuzzleLoader';
-import PatternBoards from './RangeInfoComponents/PatternBoards';
-import Skeet from './RangeInfoComponents/Skeet';
-import Trap from './RangeInfoComponents/Trap';
+import RangesArray from '../constants/RangesArray';
 
 class RangeInfo extends Component {
   constructor(props){
     super(props)
     this.state = {
-      whichRange: 'default'
+      RangesArray,
+      selectedRange: RangesArray[0].id
     }
     this.handleHighPowerChange = this.handleHighPowerChange.bind(this);
     this.handleMuzzelChange = this.handleMuzzelChange.bind(this);
@@ -26,7 +21,7 @@ class RangeInfo extends Component {
   }
 
   handleHighPowerChange() {
-    this.setState({ whichRange: 'HighPower'})
+    <HighPower />
   }
 
   handleMuzzelChange() {
@@ -65,7 +60,7 @@ class RangeInfo extends Component {
           <li onClick={this.handleIndoorOutdoorChange}>Indoor/Outdoor</li>
           <li onClick={this.handlePatternBoardsChange}>PatternBoards</li>
         </ul>
-        {this.state.whichRange}
+
         <button onClick={browserHistory.goBack}>Go Back</button>
       </div>
     )
