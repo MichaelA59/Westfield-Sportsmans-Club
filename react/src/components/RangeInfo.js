@@ -3,65 +3,70 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
 import RangesArray from '../constants/RangesArray';
+import RangeName from '../components/RangeName';
+import ShootingRange from '../components/ShootingRange';
 
 class RangeInfo extends Component {
   constructor(props){
     super(props)
     this.state = {
       RangesArray,
-      selectedRange: RangesArray[0].id
+      selectedRange: 0
     }
-    this.handleHighPowerChange = this.handleHighPowerChange.bind(this);
-    this.handleMuzzelChange = this.handleMuzzelChange.bind(this);
-    this.handleOutdoorChange = this.handleOutdoorChange.bind(this);
-    this.handleTrapChange = this.handleTrapChange.bind(this);
-    this.handleSkeetChange = this.handleSkeetChange.bind(this);
-    this.handleIndoorOutdoorChange = this.handleIndoorOutdoorChange.bind(this);
-    this.handlePatternBoardsChange = this.handlePatternBoardsChange.bind(this);
+    this.rangeClick = this.rangeClick.bind(this);
+    this.selectedRange = this.selectedRange.bind(this);
   }
 
-  handleHighPowerChange() {
-    <HighPower />
+  rangeClick(event) {
+    debugger
+    event.preventDefault()
+    this.setState({selectedRange: event.target.id})
   }
 
-  handleMuzzelChange() {
-    this.setState({whichRange: 'MuzzleLoader'})
-  }
-
-  handleOutdoorChange() {
-    this.setState({whichRange: 'HandgunRimfire'})
-  }
-
-  handleTrapChange() {
-    this.setState({whichRange: 'Trap'})
-  }
-
-  handleSkeetChange() {
-    this.setState({whichRange: 'Skeet'})
-  }
-
-  handleIndoorOutdoorChange() {
-    this.setState({whichRange: 'IndoorOutdoor'})
-  }
-
-  handlePatternBoardsChange() {
-    this.setState({whichRange: 'PatternBoards'})
+  selectedRange() {
+    return this.state.RangesArray.find((range) =>
+    (range.id === this.state.selectedRange))
   }
 
   render () {
-    return(
-      <div className='different-ranges'>
-        <ul>
-          <li onClick={this.handleHighPowerChange}>High Power</li>
-          <li onClick={this.handleMuzzelChange}>Muzzel Loader and Shotgun</li>
-          <li onClick={this.handleOutdoorChange}>Outdoor Handgun and Rimfire Rifles</li>
-          <li onClick={this.handleTrapChange}>Trap</li>
-          <li onClick={this.handleSkeetChange}>Skeet</li>
-          <li onClick={this.handleIndoorOutdoorChange}>Indoor/Outdoor</li>
-          <li onClick={this.handlePatternBoardsChange}>PatternBoards</li>
-        </ul>
+    // Just the name of the range to click on
+    // Will activate the information to be displayed for that range
+    // to the right of the links on the left
 
-        <button onClick={browserHistory.goBack}>Go Back</button>
+    let rangeNameLinks = this.state.RangesArray.map(range => {
+      return(
+        <RangeName
+        key={range.id}
+        id={range.id}
+        name={range.rangeName}
+        isSelected={this.state.selectedRange === range.id}
+        />
+      )
+    })
+
+    // Range information that will be dynamically rendered based on
+    // User choice (onClick) to the left
+
+    let rangeInformation = RangesArray.map(range => {
+      return(
+        <ShootingRange
+        key={range.id}
+        data={range}
+        isSelected={this.state.selectedRange === range.id}
+        handleClick={this.rangeClick}
+        />
+      )
+    })
+
+    return(
+      <div className='row'>
+        <div className='columns small-12 medium-3'>
+          <h1>Shooting Ranges</h1>
+          {rangeNameLinks}
+        </div>
+        <div className='columsn small-12 medium-9'>
+          {rangeInformation}
+        </div>
       </div>
     )
   }
