@@ -2,6 +2,13 @@ import 'babel-polyfill';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, browserHistory } from 'react-router';
+import HandgunRimfire from './RangeInfoComponents/HandgunRimfire';
+import HighPower from './RangeInfoComponents/HighPower';
+import IndoorOutdoor from './RangeInfoComponents/IndoorOutdoor';
+import MuzzleLoader from './RangeInfoComponents/MuzzleLoader';
+import PatternBoards from './RangeInfoComponents/PatternBoards';
+import Skeet from './RangeInfoComponents/Skeet';
+import Trap from './RangeInfoComponents/Trap';
 
 class RangeInfo extends Component {
   constructor(props){
@@ -19,31 +26,31 @@ class RangeInfo extends Component {
   }
 
   handleHighPowerChange() {
-    this.setState({ whichRange: 'highpower'})
+    this.setState({ whichRange: 'HighPower'})
   }
 
   handleMuzzelChange() {
-    this.setState({whichRange: 'muzzleloader'})
+    this.setState({whichRange: 'MuzzleLoader'})
   }
 
   handleOutdoorChange() {
-    this.setState({whichRange: 'handgunrimfire'})
+    this.setState({whichRange: 'HandgunRimfire'})
   }
 
   handleTrapChange() {
-    this.setState({whichRange: 'trap'})
+    this.setState({whichRange: 'Trap'})
   }
 
   handleSkeetChange() {
-    this.setState({whichRange: 'skeet'})
+    this.setState({whichRange: 'Skeet'})
   }
 
   handleIndoorOutdoorChange() {
-    this.setState({whichRange: 'indooroutdoor'})
+    this.setState({whichRange: 'IndoorOutdoor'})
   }
 
   handlePatternBoardsChange() {
-    this.setState({whichRange: 'patternboards'})
+    this.setState({whichRange: 'PatternBoards'})
   }
 
   render () {
@@ -58,6 +65,7 @@ class RangeInfo extends Component {
           <li onClick={this.handleIndoorOutdoorChange}>Indoor/Outdoor</li>
           <li onClick={this.handlePatternBoardsChange}>PatternBoards</li>
         </ul>
+        {this.state.whichRange}
         <button onClick={browserHistory.goBack}>Go Back</button>
       </div>
     )
