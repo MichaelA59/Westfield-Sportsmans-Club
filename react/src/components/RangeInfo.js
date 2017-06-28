@@ -14,18 +14,10 @@ class RangeInfo extends Component {
       selectedRange: 0
     }
     this.rangeClick = this.rangeClick.bind(this);
-    this.selectedRange = this.selectedRange.bind(this);
   }
 
   rangeClick(event) {
-    debugger
-    event.preventDefault()
     this.setState({selectedRange: event.target.id})
-  }
-
-  selectedRange() {
-    return this.state.RangesArray.find((range) =>
-    (range.id === this.state.selectedRange))
   }
 
   render () {
@@ -36,10 +28,10 @@ class RangeInfo extends Component {
     let rangeNameLinks = this.state.RangesArray.map(range => {
       return(
         <RangeName
-        key={range.id}
-        id={range.id}
-        name={range.rangeName}
-        isSelected={this.state.selectedRange === range.id}
+          key={range.id}
+          id={range.id}
+          name={range.rangeName}
+          handleClick={this.rangeClick}
         />
       )
     })
@@ -53,7 +45,6 @@ class RangeInfo extends Component {
         key={range.id}
         data={range}
         isSelected={this.state.selectedRange === range.id}
-        handleClick={this.rangeClick}
         />
       )
     })
@@ -61,7 +52,7 @@ class RangeInfo extends Component {
     return(
       <div className='row'>
         <div className='columns small-12 medium-3'>
-          <h1>Shooting Ranges</h1>
+          <h1 className='text-center'>Shooting Ranges</h1>
           {rangeNameLinks}
         </div>
         <div className='columsn small-12 medium-9'>

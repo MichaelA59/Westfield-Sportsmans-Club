@@ -20,9 +20,12 @@ class ShootingRange extends React.Component {
       <div>
         <h3>{this.props.data.RangeName}</h3>
         <p>{this.props.data.header}</p>
-        <img src={`{images}`}/>
+        <img src={`${this.props.data.images}`}/>
       </div>
     )
   }
 }
 export default ShootingRange;
+
+
+<img src="http://www.westfieldsportsmansclub.com/images/20151128_092326.jpg" />
