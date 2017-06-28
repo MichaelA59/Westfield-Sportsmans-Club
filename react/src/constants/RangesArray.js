@@ -20,9 +20,7 @@ const RangesArray = [
     rangeName: 'Indoor Outdoor Range',
     header: 'More info on our Indoor/Outdoor Range coming soon!',
     images: [
-      'http://www.westfieldsportsmansclub.com/images/2012-06-07_08-39-24_881.jpg',
-      'http://www.westfieldsportsmansclub.com/images/2012-06-07_08-41-40_617.jpg',
-      'http://www.westfieldsportsmansclub.com/images/2012-06-07_08-41-06_178.jpg'
+      'http://www.westfieldsportsmansclub.com/images/2012-06-07_08-39-24_881.jpg'
     ]
   },
 

@@ -10,22 +10,14 @@ class ShootingRange extends React.Component {
   }
 
   render(){
-
-    if(this.props.images.size) > 1 {
-      x = 0
-      y = 1
-      image[y] = `${this.props.images[x]}`
-      x++
-      y++
-    }
-
-
-
-
     return(
-      <div>
+      <div className='text-center'>
         <p>{this.props.text}</p>
-        <img src={`${this.props.images}`}/>
+        <img
+          src={`${this.props.images}`}
+          width='500'
+          height='500'
+        />
       </div>
     )
   }

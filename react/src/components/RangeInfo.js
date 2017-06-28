@@ -60,7 +60,7 @@ class RangeInfo extends Component {
           {ranges}
         </div>
         <div className='columns small-12 medium-8'>
-          <h1>{this.state.selectedRangeInfo.rangeName}</h1>
+          <h1 className='text-center'>{this.state.selectedRangeInfo.rangeName}</h1>
           <ShootingRange
             key={this.state.selectedRangeInfo.id}
             id={this.state.selectedRangeInfo.id}
