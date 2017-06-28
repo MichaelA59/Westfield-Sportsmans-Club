@@ -11,13 +11,14 @@ class RangeInfo extends Component {
     super(props)
     this.state = {
       RangesArray,
-      selectedRange: 0
+      selectedRangeId: 0
     }
-    this.rangeClick = this.rangeClick.bind(this);
+    this.handleRangeSelect = this.handleRangeSelect.bind(this)
   }
 
-  rangeClick(event) {
-    this.setState({selectedRange: event.target.id})
+  handleRangeSelect(id) {
+    let newId = id
+    this.setState({ selectedRangeId: newId - 1})
   }
 
   render () {
@@ -26,12 +27,23 @@ class RangeInfo extends Component {
     // to the right of the links on the left
 
     let rangeNameLinks = this.state.RangesArray.map(range => {
+      // Styling className for User selected Range
+      let className = '';
+      if(this.state.selectedRangeId === range.id) {
+        className="selected";
+      }
+
+      let handleRangeSelect = () => {
+        this.handleRangeSelect(range.id)
+      }
+
       return(
         <RangeName
           key={range.id}
           id={range.id}
           name={range.rangeName}
-          handleClick={this.rangeClick}
+          className={className}
+          handleRangeSelect={handleRangeSelect}
         />
       )
     })
@@ -39,24 +51,22 @@ class RangeInfo extends Component {
     // Range information that will be dynamically rendered based on
     // User choice (onClick) to the left
 
-    let rangeInformation = RangesArray.map(range => {
-      return(
-        <ShootingRange
-        key={range.id}
-        data={range}
-        isSelected={this.state.selectedRange === range.id}
-        />
-      )
-    })
+    // let rangeInformation = RangesArray.map(range => {
+    //   return(
+    //     <ShootingRange
+    //     key={range.id}
+    //     data={range}
+    //     isSelected={this.state.selectedRange === range.id}
+    //     whichRange={this.state.selectedRange}
+    //     />
+    //   )
+    // })
 
     return(
       <div className='row'>
-        <div className='columns small-12 medium-3'>
+        <div className='columns small-12 medium-4'>
           <h1 className='text-center'>Shooting Ranges</h1>
           {rangeNameLinks}
-        </div>
-        <div className='columsn small-12 medium-9'>
-          {rangeInformation}
         </div>
       </div>
     )
