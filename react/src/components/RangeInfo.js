@@ -27,10 +27,8 @@ class RangeInfo extends Component {
   }
 
   render () {
-    // Just the name of the range to click on
-    // Will activate the information to be displayed for that range
-    // to the right of the links on the left
-
+    // A list of all available ranges with onClick for each component
+    // that will setState and display corresponding range information to right
     let ranges = this.state.RangesArray.map(range => {
       // Styling className for User selected Range
       let className = '';
