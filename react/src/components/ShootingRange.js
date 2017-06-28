@@ -6,21 +6,26 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 class ShootingRange extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render(){
-    let images = this.props.data.images.map(image => {
-      return image
-    })
+
+    if(this.props.images.size) > 1 {
+      x = 0
+      y = 1
+      image[y] = `${this.props.images[x]}`
+      x++
+      y++
+    }
+
+
+
 
     return(
       <div>
-        <h3>{this.props.data.RangeName}</h3>
-        <p>{this.props.data.header}</p>
-        <img src={`${this.props.data.images[this.props.whichRange]}`}/>
+        <p>{this.props.text}</p>
+        <img src={`${this.props.images}`}/>
       </div>
     )
   }

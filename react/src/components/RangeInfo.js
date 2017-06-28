@@ -11,14 +11,19 @@ class RangeInfo extends Component {
     super(props)
     this.state = {
       RangesArray,
-      selectedRangeId: 0
+      selectedRangeId: 0,
+      selectedRangeInfo: {}
     }
-    this.handleRangeSelect = this.handleRangeSelect.bind(this)
+    this.handleRangeSelect = this.handleRangeSelect.bind(this);
   }
 
   handleRangeSelect(id) {
     let newId = id
-    this.setState({ selectedRangeId: newId - 1})
+    let rangeInfo = this.state.RangesArray[newId - 1]
+    this.setState({
+      selectedRangeId: newId,
+      selectedRangeInfo: rangeInfo
+    })
   }
 
   render () {
@@ -26,13 +31,13 @@ class RangeInfo extends Component {
     // Will activate the information to be displayed for that range
     // to the right of the links on the left
 
-    let rangeNameLinks = this.state.RangesArray.map(range => {
+    let ranges = this.state.RangesArray.map(range => {
       // Styling className for User selected Range
       let className = '';
       if(this.state.selectedRangeId === range.id) {
         className="selected";
       }
-
+      // Change state of selected Range ID
       let handleRangeSelect = () => {
         this.handleRangeSelect(range.id)
       }
@@ -48,25 +53,20 @@ class RangeInfo extends Component {
       )
     })
 
-    // Range information that will be dynamically rendered based on
-    // User choice (onClick) to the left
-
-    // let rangeInformation = RangesArray.map(range => {
-    //   return(
-    //     <ShootingRange
-    //     key={range.id}
-    //     data={range}
-    //     isSelected={this.state.selectedRange === range.id}
-    //     whichRange={this.state.selectedRange}
-    //     />
-    //   )
-    // })
-
     return(
       <div className='row'>
         <div className='columns small-12 medium-4'>
           <h1 className='text-center'>Shooting Ranges</h1>
-          {rangeNameLinks}
+          {ranges}
+        </div>
+        <div className='columns small-12 medium-8'>
+          <h1>{this.state.selectedRangeInfo.rangeName}</h1>
+          <ShootingRange
+            key={this.state.selectedRangeInfo.id}
+            id={this.state.selectedRangeInfo.id}
+            text={this.state.selectedRangeInfo.header}
+            images={this.state.selectedRangeInfo.images}
+          />
         </div>
       </div>
     )
