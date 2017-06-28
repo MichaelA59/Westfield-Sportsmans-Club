@@ -15,6 +15,17 @@
  *= require foundation_and_overrides
  */
 
+ html {
+   height: 100%;
+ }
+
+ body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   vertical-align: middle;
+ }
+
 .top-bar {
   .logo li {
     display: inline-block;
@@ -31,8 +42,24 @@
 }
 
 .list-of-ranges {
-  border: 1px solid red;
+  border: 1px solid black;
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+footer {
+  height: 50px;
+  width: 100%;
+}
+
+.back-button{
+  border: 1px solid grey;
+  border-radius: 25px;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: rgb(170,170,170);
 }

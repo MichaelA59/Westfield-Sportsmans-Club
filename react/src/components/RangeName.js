@@ -11,7 +11,7 @@ class RangeName extends React.Component {
 
   render(){
     return(
-      <div className='list-of-ranges' onClick={this.props.handleClick}>
+      <div className='list-of-ranges' onClick={this.props.handleRangeSelect}>
         {this.props.name}
       </div>
     )
