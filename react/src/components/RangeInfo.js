@@ -11,7 +11,7 @@ class RangeInfo extends Component {
     super(props)
     this.state = {
       RangesArray,
-      selectedRangeId: 0,
+      selectedRangeId: 1,
       selectedRangeInfo: {}
     }
     this.handleRangeSelect = this.handleRangeSelect.bind(this);
@@ -23,6 +23,13 @@ class RangeInfo extends Component {
     this.setState({
       selectedRangeId: newId,
       selectedRangeInfo: rangeInfo
+    })
+  }
+
+  componentWillMount() {
+    this.setState({
+      selectedRangeId: 1,
+      selectedRangeInfo: this.state.RangesArray[0]
     })
   }
 

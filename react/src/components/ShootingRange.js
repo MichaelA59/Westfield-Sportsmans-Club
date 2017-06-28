@@ -16,7 +16,7 @@ class ShootingRange extends React.Component {
         <img
           src={`${this.props.images}`}
           width='500'
-          maxHeight='300'
+          height='300'
         />
       </div>
     )
