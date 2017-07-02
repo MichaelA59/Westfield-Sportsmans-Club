@@ -8,6 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'dotenv'
 gem 'foundation-rails'
+gem 'devise'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'listen', '~> 3.0.5'
